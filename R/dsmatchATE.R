@@ -934,7 +934,8 @@ dsmatchATE = function(Y, X, A, method = "dsm",
       bootvar <- bootq1 <- bootq2 <- rep(1, 2)
     }
 
-    return(list(est.x = est.x, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2))
+    return(list(est.x = est.x, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
+                X.mat = dup.trt))
 
   }else{
     stop("invalid method")
