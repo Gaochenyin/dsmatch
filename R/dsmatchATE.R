@@ -349,7 +349,8 @@ dsmatchATE = function(Y, X, A, method = "dsm",
         bootvar <- bootq1 <- bootq2 <- rep(1, 2)
       }
 
-      return(list(est.ds = est.ds, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2))
+      return(list(est.x = est.x, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
+                  X.mat = dup.trt))
 
     }else{
       # if propensity score model is given and score is missing, then fit the model
@@ -571,7 +572,8 @@ dsmatchATE = function(Y, X, A, method = "dsm",
         bootvar <- bootq1 <- bootq2 <- rep(1, 2)
       }
 
-      return(list(est.ds = est.ds, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2))
+      return(list(est.x = est.x, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
+                  X.mat = dup.trt))
     }
 
 
@@ -680,7 +682,8 @@ dsmatchATE = function(Y, X, A, method = "dsm",
       bootvar <- bootq1 <- bootq2 <- rep(1, 2)
     }
 
-    return(list(est.ps = est.ps, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2))
+    return(list(est.x = est.x, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
+                X.mat = dup.trt))
 
   }else if(method == "pg"){
     # if prognostic score model is given and score is missing, then fit the model
@@ -831,7 +834,8 @@ dsmatchATE = function(Y, X, A, method = "dsm",
       bootvar <- bootq1 <- bootq2 <- rep(1, 2)
     }
 
-    return(list(est.pg = est.pg, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2))
+    return(list(est.x = est.x, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
+                X.mat = dup.trt))
 
   }else if(method == "cov"){
     lm.y <- Y
