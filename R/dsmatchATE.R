@@ -690,9 +690,7 @@ dsmatchATE = function(Y, X, A, method = "dsm",
 
     return(list(est.ps = est.ps, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
                 X.mat = list(dup.trt, dup.ctl),
-                scores = cbind(mu0 = mu0,
-                               mu1 = mu1,
-                               ps = ps)))
+                scores = cbind(ps = ps)))
 
   }else if(method == "pg"){
     # if prognostic score model is given and score is missing, then fit the model
@@ -846,8 +844,7 @@ dsmatchATE = function(Y, X, A, method = "dsm",
     return(list(est.pg = est.pg, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
                 X.mat = list(dup.trt, dup.ctl),
                 scores = cbind(mu0 = mu0,
-                               mu1 = mu1,
-                               ps = ps)))
+                               mu1 = mu1)))
 
   }else if(method == "cov"){
     lm.y <- Y
@@ -951,10 +948,7 @@ dsmatchATE = function(Y, X, A, method = "dsm",
     }
 
     return(list(est.x = est.x, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
-                X.mat = list(dup.trt, dup.ctl),
-                scores = cbind(mu0 = mu0,
-                               mu1 = mu1,
-                               ps = ps)))
+                X.mat = list(dup.trt, dup.ctl)))
 
   }else{
     stop("invalid method")
