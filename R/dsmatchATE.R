@@ -350,7 +350,10 @@ dsmatchATE = function(Y, X, A, method = "dsm",
       }
 
       return(list(est.ds = est.ds, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
-                  X.mat = list(dup.trt, dup.ctl)))
+                  X.mat = list(dup.trt, dup.ctl),
+                  scores = cbind(mu0 = mu0,
+                                 mu1 = mu1,
+                                 ps = ps)))
 
     }else{
       # if propensity score model is given and score is missing, then fit the model
@@ -573,7 +576,10 @@ dsmatchATE = function(Y, X, A, method = "dsm",
       }
 
       return(list(est.ds = est.ds, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
-                  X.mat = list(dup.trt, dup.ctl)))
+                  X.mat = list(dup.trt, dup.ctl),
+                  scores = cbind(mu0 = mu0,
+                                 mu1 = mu1,
+                                 ps = ps)))
     }
 
 
@@ -683,7 +689,10 @@ dsmatchATE = function(Y, X, A, method = "dsm",
     }
 
     return(list(est.ps = est.ps, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
-                X.mat = list(dup.trt, dup.ctl)))
+                X.mat = list(dup.trt, dup.ctl),
+                scores = cbind(mu0 = mu0,
+                               mu1 = mu1,
+                               ps = ps)))
 
   }else if(method == "pg"){
     # if prognostic score model is given and score is missing, then fit the model
@@ -835,7 +844,10 @@ dsmatchATE = function(Y, X, A, method = "dsm",
     }
 
     return(list(est.pg = est.pg, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
-                X.mat = list(dup.trt, dup.ctl)))
+                X.mat = list(dup.trt, dup.ctl),
+                scores = cbind(mu0 = mu0,
+                               mu1 = mu1,
+                               ps = ps)))
 
   }else if(method == "cov"){
     lm.y <- Y
@@ -939,7 +951,10 @@ dsmatchATE = function(Y, X, A, method = "dsm",
     }
 
     return(list(est.x = est.x, bootvar = bootvar, bootq1 = bootq1, bootq2 = bootq2,
-                X.mat = list(dup.trt, dup.ctl)))
+                X.mat = list(dup.trt, dup.ctl),
+                scores = cbind(mu0 = mu0,
+                               mu1 = mu1,
+                               ps = ps)))
 
   }else{
     stop("invalid method")
